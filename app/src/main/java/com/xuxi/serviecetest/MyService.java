@@ -29,6 +29,7 @@ public class MyService extends Service {
     }
 
     public MyService() {
+
     }
 
     @Override
@@ -60,6 +61,14 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand executed");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //处理具体的逻辑
+//                stopSelf();
+            }
+        }).start();
+
         return super.onStartCommand(intent, flags, startId);
     }
 
